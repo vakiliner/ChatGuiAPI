@@ -1,6 +1,10 @@
-.gradle
+# Gradle
+
+.gradle/
 **/build/
 !**/src/**/build/
+out/
+classes/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -14,8 +18,14 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
-# Eclipse Gradle plugin generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
+# vscode
+
+.settings/
+.vscode/
+bin/
 .classpath
+.project
+
+# fabric
+
+run/
