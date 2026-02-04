@@ -16,7 +16,7 @@
 	"icon": "icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"main": "vakiliner.chatguiapi.fabric.ChatGuiAPI"
+		"main": "vakiliner.chatguiapi.fabric.FabricChatGuiAPI"
 	},
 	"depends": {
 		"minecraft": "~1.16.2",
