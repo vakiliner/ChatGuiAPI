@@ -3,20 +3,17 @@ package vakiliner.chatguiapi.fabric.impl;
 import net.minecraft.client.gui.screens.Screen;
 import vakiliner.chatcomponentapi.component.ChatComponent;
 import vakiliner.chatcomponentapi.fabric.FabricParser;
-import vakiliner.chatguiapi.base.ChatScreen;
 import vakiliner.chatguiapi.fabric.ChatGuiAPIFabricParser;
+import vakiliner.chatguiapi.fabric.FabricChatScreen;
 
-public class FabricChatScreen implements ChatScreen {
+public class FabricChatScreenImpl implements FabricChatScreen {
+	@SuppressWarnings("unused")
 	private final ChatGuiAPIFabricParser parser;
 	private final ScreenImpl screen;
 
-	public FabricChatScreen(ChatGuiAPIFabricParser parser, ChatComponent chatComponent) {
+	public FabricChatScreenImpl(ChatGuiAPIFabricParser parser, ChatComponent chatComponent) {
 		this.parser = parser;
 		this.screen = new ScreenImpl(chatComponent);
-	}
-
-	public ChatGuiAPIFabricParser getParser() {
-		return this.parser;
 	}
 
 	public Screen toFabric() {
@@ -52,8 +49,8 @@ public class FabricChatScreen implements ChatScreen {
 			this.init.run();
 		}
 
-		public FabricChatScreen toChatGuiAPI() {
-			return FabricChatScreen.this;
+		public FabricChatScreenImpl toChatGuiAPI() {
+			return FabricChatScreenImpl.this;
 		}
 	}
 }
