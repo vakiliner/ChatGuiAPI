@@ -31,12 +31,12 @@ public class FabricChatScreen implements ChatScreen {
 		return this.screen.shouldCloseOnEsc();
 	}
 
-	class ScreenImpl extends Screen {
+	public class ScreenImpl extends Screen {
 		private boolean shouldCloseOnEsc = super.shouldCloseOnEsc();
 		private Runnable onClose = super::onClose;
 		private Runnable init = super::init;
 
-		public ScreenImpl(ChatComponent chatComponent) {
+		private ScreenImpl(ChatComponent chatComponent) {
 			super(FabricParser.fabric(chatComponent));
 		}
 
@@ -50,6 +50,10 @@ public class FabricChatScreen implements ChatScreen {
 
 		protected void init() {
 			this.init.run();
+		}
+
+		public FabricChatScreen toChatGuiAPI() {
+			return FabricChatScreen.this;
 		}
 	}
 }
