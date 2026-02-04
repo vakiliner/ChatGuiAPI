@@ -41,6 +41,7 @@ dependencies {
 	implementation project(':base')
 	minecraft group: 'net.minecraftforge', name: 'forge', version: "${project.minecraft_version}-${project.forge_version}"
 	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+	compileOnly fileTree(include: ['*.jar'], dir: 'libs')
 }
 
 mixin {
