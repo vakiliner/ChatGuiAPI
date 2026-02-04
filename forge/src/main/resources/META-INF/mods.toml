@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[33,)"
+license="${license}"
+issueTrackerURL="https://github.com/vakiliner/ChatGuiAPI/issues"
+clientSideOnly=true
+
+[[mods]]
+	modId="chatguiapi"
+	version="${version}"
+	displayName="ChatGuiAPI"
+	authors="VAKiliner"
+	description='''
+	'''
+	displayURL="https://github.com/vakiliner/ChatGuiAPI"
+	updateJSONURL="https://raw.githubusercontent.com/vakiliner/ChatGuiAPI/refs/heads/main/update.json"
+
+[[dependencies.chatguiapi]]
+	modId="forge"
+	mandatory=true
+	versionRange="[33,)"
+[[dependencies.chatguiapi]]
+	modId="minecraft"
+	mandatory=true
+	versionRange="[1.16.2,1.17)"
+[[dependencies.chatguiapi]]
+	modId="chatcomponentapi"
+	mandatory=true
+	versionRange="[0.1.0,0.2)"

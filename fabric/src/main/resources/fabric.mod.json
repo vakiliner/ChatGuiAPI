@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "chatguiapi",
+	"version": "${version}",
+	"name": "ChatGuiAPI",
+	"description": "",
+	"authors": [
+		"VAKiliner"
+	],
+	"contact": {
+		"homepage": "https://github.com/vakiliner/ChatGuiAPI",
+		"issues": "https://github.com/vakiliner/ChatGuiAPI/issues",
+		"sources": "https://github.com/vakiliner/ChatGuiAPI"
+	},
+	"license": "${license}",
+	"icon": "icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": "vakiliner.chatguiapi.ChatGuiAPIFabricLoader"
+	},
+	"depends": {
+		"minecraft": "~1.16.2",
+		"chatcomponentapi": "~0.1.0"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.gg/rsDWHrHbEr",
+				"modmenu.youtube": "https://youtube.com/channel/UCrJCX5gqOkVwH-Qq9HYyoxg"
+			},
+			"badges": [
+				"library"
+			]
+		}
+	}
+}
