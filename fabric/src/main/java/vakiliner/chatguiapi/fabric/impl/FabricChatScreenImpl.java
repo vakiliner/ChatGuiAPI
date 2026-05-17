@@ -1,6 +1,8 @@
 package vakiliner.chatguiapi.fabric.impl;
 
+import java.util.function.Function;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import vakiliner.chatcomponentapi.component.ChatComponent;
 import vakiliner.chatcomponentapi.fabric.FabricParser;
 import vakiliner.chatguiapi.fabric.ChatGuiAPIFabricParser;
@@ -9,23 +11,27 @@ import vakiliner.chatguiapi.fabric.FabricChatScreen;
 public class FabricChatScreenImpl implements FabricChatScreen {
 	@SuppressWarnings("unused")
 	private final ChatGuiAPIFabricParser parser;
-	private final ScreenImpl screen;
+	private final ScreenImpl impl;
 
-	public FabricChatScreenImpl(ChatGuiAPIFabricParser parser, ChatComponent chatComponent) {
+	public FabricChatScreenImpl(ChatGuiAPIFabricParser parser, ChatComponent component) {
 		this.parser = parser;
-		this.screen = new ScreenImpl(chatComponent);
+		this.impl = new ScreenImpl(FabricParser.fabric(component));
 	}
 
 	public Screen toFabric() {
-		return this.screen;
+		return this.impl;
 	}
 
 	public ChatComponent getTitle() {
-		return FabricParser.fabric(this.screen.getTitle());
+		return FabricParser.fabric(this.impl.getTitle());
 	}
 
 	public boolean shouldCloseOnEsc() {
-		return this.screen.shouldCloseOnEsc();
+		return this.impl.shouldCloseOnEsc();
+	}
+
+	public void onInit(Function<Runnable, Runnable> function) {
+		this.impl.init = function.apply(this.impl.init);
 	}
 
 	public class ScreenImpl extends Screen {
@@ -33,8 +39,8 @@ public class FabricChatScreenImpl implements FabricChatScreen {
 		private Runnable onClose = super::onClose;
 		private Runnable init = super::init;
 
-		private ScreenImpl(ChatComponent chatComponent) {
-			super(FabricParser.fabric(chatComponent));
+		private ScreenImpl(Component component) {
+			super(component);
 		}
 
 		public boolean shouldCloseOnEsc() {
