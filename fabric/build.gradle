@@ -8,7 +8,7 @@ dependencies {
 	mappings loom.officialMojangMappings()
 	modImplementation group: 'net.fabricmc', name: 'fabric-loader', version: project.loader_version
 
-	modImplementation fileTree(include: ['*.jar'], dir: 'libs')
+	modImplementation fileTree(include: ['*.jar'], dir: '../libs')
 }
 
 loom {

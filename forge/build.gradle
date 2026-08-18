@@ -8,7 +8,7 @@ dependencies {
 	mappings loom.officialMojangMappings()
 	forge group: 'net.minecraftforge', name: 'forge', version: "${project.minecraft_version}-${project.forge_version}"
 
-	modImplementation fileTree(include: ['*.jar'], dir: 'libs')
+	modImplementation fileTree(include: ['*.jar'], dir: '../libs')
 }
 
 loom {
