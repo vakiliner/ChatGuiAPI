@@ -1,10 +1,10 @@
 plugins {
-	id 'fabric-loom' version "${loom_version}"
+	id 'dev.architectury.loom'
 }
 
 dependencies {
 	implementation project(':base')
-	minecraft group: 'com.mojang', name: 'minecraft', version: project.minecraft_version
+	minecraft group: 'net.minecraft', name: 'minecraft', version: project.minecraft_version
 	mappings loom.officialMojangMappings()
 	modImplementation group: 'net.fabricmc', name: 'fabric-loader', version: project.loader_version
 
@@ -13,30 +13,22 @@ dependencies {
 
 loom {
 	mixin {
-		defaultRefmapName = 'ChatGuiAPI-fabric-refmap.json'
+		defaultRefmapName = "${project.archives_base_name}-fabric-refmap.json"
+
+		useLegacyMixinAp = true
 	}
 }
 
 processResources {
-	var replaceProperties = [
-		version: project.version,
-		license: project.license,
-	]
-	inputs.properties replaceProperties
-
 	filesMatching('fabric.mod.json') {
-		expand replaceProperties
+		expand inputs.properties
 	}
 }
 
-jar {
-	var task = project(':base').tasks.getByName('jar')
-
-	from(zipTree(task.archiveFile)) {
-		exclude 'LICENSE'
-	}
-
-	manifest {
-		from task.manifest
+processTestResources {
+	filesMatching('fabric.mod.json') {
+		expand inputs.properties
 	}
 }
+
+java.withSourcesJar()
