@@ -17,7 +17,7 @@
 	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"vakiliner.chatguiapi.fabric.FabricChatGuiAPI"
+			"vakiliner.chatguiapi"
 		]
 	},
 	"depends": {
